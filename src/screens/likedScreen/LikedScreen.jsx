@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
-import Spinner, { Col, Container } from "react-bootstrap"
+import { Col, Container } from "react-bootstrap"
+import Spinner from "react-bootstrap/esm/Spinner"
 import InfiniteScroll from "react-infinite-scroll-component"
 import { useDispatch, useSelector } from "react-redux"
 import SkeletonVideo from "../../components/skeletons/SkeletonVideo"

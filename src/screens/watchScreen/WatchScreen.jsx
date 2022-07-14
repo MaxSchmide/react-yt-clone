@@ -8,7 +8,6 @@ import Comments from "../../components/comments/Comments"
 import RelatedVideo from "../../components/relatedVideo/RelatedVideo"
 import VideoMetaData from "../../components/videoMetaData/VideoMetaData"
 import "./_watchScreen.scss"
-import { Helmet } from "react-helmet"
 
 const WatchScreens = () => {
 	const { id } = useParams()
