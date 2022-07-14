@@ -1,0 +1,128 @@
+@import "../../global";
+.header {
+  background-color: #202020fc;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  &__menu {
+    .hamburger-lines {
+      display: none;
+      position: relative;
+      margin: 0 15px;
+      height: 16px;
+      width: 22px;
+      .line {
+        display: none;
+        height: 2px;
+        width: 100%;
+        border-radius: 10px;
+        background: #fff;
+      }
+
+      .line1 {
+        transform-origin: 0% 0%;
+        transition: transform 0.4s ease-in-out;
+      }
+      .line2 {
+        transition: transform 0.2s ease-in-out;
+      }
+      .line3 {
+        transform-origin: 0% 100%;
+        transition: transform 0.4s ease-in-out;
+      }
+      &.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        .line {
+          display: block;
+        }
+      }
+    }
+  }
+  &__logo {
+    display: flex;
+    margin-left: 35px;
+    cursor: pointer;
+    img {
+      width: 97px;
+      height: 20px;
+    }
+  }
+  &__search {
+    margin: 0 auto;
+    form {
+      flex: 0.6;
+      display: flex;
+      padding: 0.1rem;
+      margin: 0 1rem;
+      border: 0.1px solid #303030;
+      background-color: $black-secondary;
+      width: 40vw;
+      input {
+        background-color: transparent;
+        padding: 0.3rem;
+        border: none;
+        width: 100%;
+        color: #fff;
+        &:focus {
+          outline: none;
+        }
+      }
+      button {
+        background-color: #303030;
+        border: none;
+        width: 5vw;
+        color: $text-color;
+      }
+    }
+  }
+  &__icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 0 15px;
+
+    img {
+      cursor: pointer;
+      width: 40px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-small) {
+  .header {
+    &__menu {
+      .hamburger-lines {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        .line {
+          display: block;
+        }
+      }
+    }
+    padding: 1rem;
+    &__search {
+      form {
+        flex: 1;
+        button {
+          display: none;
+        }
+      }
+    }
+    &__logo {
+      display: none;
+    }
+    &__icons > *:not(img) {
+      display: none;
+    }
+  }
+}

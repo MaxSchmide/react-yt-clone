@@ -1,0 +1,10 @@
+@import "../../global";
+.filterBar {
+  background-color: $black-secondary;
+  position: sticky;
+  z-index: 999;
+  top: 56px;
+  width: 100%;
+  height: 46.56px;
+  border-bottom: 1px solid $active-color;
+}

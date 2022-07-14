@@ -1,0 +1,10 @@
+@import "../../global";
+.watch {
+	margin: 1rem 2rem;
+	&__player {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 1rem;
+	}
+}

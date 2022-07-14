@@ -1,0 +1,54 @@
+@import "../../global";
+.subs {
+	margin: 15px 0 15px 0 !important;
+	&__thumbnail {
+		position: relative;
+		&__channelIcon {
+			width: fit-content;
+			margin: 0 auto;
+
+			img {
+				width: 136px;
+				height: 136px;
+				border-radius: 50%;
+				cursor: pointer;
+			}
+		}
+		&__duration {
+			position: absolute;
+			bottom: 0.3rem;
+			right: 2.3rem;
+			padding: 0.2rem;
+			color: white;
+			border-radius: 3px;
+			background-color: #080808ec;
+		}
+	}
+	&__info {
+		.container {
+			display: flex;
+			flex-direction: row;
+			height: 100%;
+			.channel {
+				display: flex;
+				flex-direction: column;
+				margin: auto 0;
+				&__title {
+					font-size: 20px;
+					font-weight: 500;
+					color: #fff;
+					margin-bottom: 10px;
+					cursor: pointer;
+				}
+				&__details {
+					font-size: 14px;
+					color: $details-text-color;
+				}
+				&__description {
+					font-size: 12px;
+					@include line-clamb(2);
+				}
+			}
+		}
+	}
+}

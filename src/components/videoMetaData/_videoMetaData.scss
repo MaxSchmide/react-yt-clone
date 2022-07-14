@@ -1,0 +1,91 @@
+@import "../../_global.scss";
+.metaData {
+  &__top {
+    border-bottom: 1px solid $lines-color;
+    .hashtag {
+      @include line-clamb(1);
+      a {
+        margin-right: 5px;
+      }
+    }
+    .title {
+      color: #fff;
+      font-size: 18px;
+      @include line-clamb(1);
+    }
+    .info {
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &__views {
+        font-size: 14px;
+        color: $details-text-color;
+      }
+      &__buttons {
+        span {
+          color: #fff;
+          margin-right: 1rem;
+          svg {
+            margin-right: 2px;
+          }
+        }
+      }
+    }
+  }
+  &__channel {
+    border-bottom: 1px solid $lines-color;
+
+    margin: 1rem 0;
+    display: flex;
+    .icon {
+      margin-right: 10px;
+      img {
+        cursor: pointer;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+      }
+    }
+    .details {
+      .channelTitle {
+        font-weight: bold;
+        font-size: 14px;
+        color: #fff;
+        cursor: pointer;
+      }
+      .channelSub {
+        font-size: 12px;
+        color: $details-text-color;
+      }
+      .description {
+        margin-right: 20px;
+        margin-top: 0.5rem;
+        @include line-clamb(3);
+      }
+    }
+    .buttons {
+      .subscribe {
+        background-color: $red-primary;
+        border: none;
+        padding: 10px 16px;
+        color: #fff;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: bold;
+        border-radius: 3px;
+      }
+      .unsubscribe {
+        background-color: #ffffff1a;
+        border: none;
+        padding: 10px 16px;
+        color: $details-text-color;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: bold;
+        border-radius: 3px;
+      }
+    }
+  }
+}

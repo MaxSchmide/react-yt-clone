@@ -1,0 +1,51 @@
+@import "../../global";
+
+.categoriesBar {
+  background-color: $black-primary;
+  position: sticky;
+  z-index: 999;
+  top: 56px;
+  width: 100%;
+  font-size: 0.8rem;
+  display: flex;
+  padding: 0.5rem 1rem;
+  overflow-y: none;
+  overflow-x: scroll;
+  &::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+  }
+
+  border-top: 0.3px solid rgb(85, 84, 84);
+  border-bottom: 0.3px solid rgb(85, 85, 85);
+  span {
+    cursor: pointer;
+    margin-right: 1rem;
+    padding: 0.2rem 0.5rem;
+    white-space: nowrap;
+    border: 1.5px solid rgb(85, 85, 85);
+    border-radius: 999px;
+    color: #fff;
+    background-color: $hover-color;
+
+    &:hover {
+      background-color: $active-color;
+      color: #fff;
+    }
+    &.active {
+      background-color: #fff;
+      color: $text-color;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-medium) {
+  .categoriesBar {
+    left: 90px;
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .categoriesBar {
+    left: 0px;
+  }
+}

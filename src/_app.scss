@@ -1,0 +1,29 @@
+@import "./global";
+.app__container {
+  display: flex;
+  height: 90vh;
+}
+.app__main {
+  width: calc(100vw - 250px) !important;
+  height: fit-content;
+  position: relative;
+  top: 56px;
+  left: 240px;
+  background-color: $black-secondary;
+  margin-left: 0rem !important;
+  margin-right: 0rem !important;
+}
+@media (max-width: $breakpoint-medium) {
+  .app__main {
+    width: calc(100vw - 90px) !important;
+    position: relative;
+    left: 90px;
+  }
+}
+@media (max-width: $breakpoint-small) {
+  .app__main {
+    width: 100% !important;
+    position: relative;
+    left: 0px;
+  }
+}

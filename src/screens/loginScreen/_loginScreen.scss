@@ -1,0 +1,42 @@
+@import "../../global";
+.login {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 350px;
+  width: 500px;
+  padding: 48px 40px 36px;
+  margin: 50px auto;
+  border-radius: 5px;
+  border: 1px solid $text-color;
+  &__logo {
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    img {
+      width: 105px;
+    }
+  }
+  &__title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  &__button {
+    button {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid white;
+      border-radius: 3px;
+      background: none;
+      color: white;
+      &:hover {
+        background-color: #fff;
+        color: #111;
+      }
+    }
+  }
+  &__footer {
+    margin-top: auto;
+    text-align: center;
+  }
+}
