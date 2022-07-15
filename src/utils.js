@@ -220,7 +220,7 @@ export const getRelatedVideosById = (param) => {
 	}
 }
 
-export const searchByKeyword = (keyword, param) => {
+export const searchByKeyword = (keyword) => {
 	return async (dispatch) => {
 		try {
 			dispatch(searchingRequest())
@@ -229,10 +229,9 @@ export const searchByKeyword = (keyword, param) => {
 					part: "snippet",
 					q: keyword,
 					maxResults: 20,
-					pageToken: param,
 				},
 			}).then(({ data: { items, nextPageToken } }) => {
-				dispatch(searchingSuccess({ items: items, token: nextPageToken }))
+				dispatch(searchingSuccess({ items: items }))
 			})
 		} catch (error) {
 			dispatch(searchingFail(error.message))
@@ -263,7 +262,7 @@ export const getSubscriptionChannel = (token) => {
 	}
 }
 
-export const getVideosByChannel = (param, nextPageToken) => {
+export const getVideosByChannel = (param) => {
 	return async (dispatch) => {
 		try {
 			dispatch(channelVideosRequest())
@@ -281,13 +280,11 @@ export const getVideosByChannel = (param, nextPageToken) => {
 					part: "contentDetails,snippet",
 					playlistId: uploadPlaylistId,
 					maxResults: 20,
-					pageToken: nextPageToken,
 				},
 			}).then(({ data }) => {
 				dispatch(
 					channelVideosSuccess({
 						items: data.items,
-						nextPageToken: data.nextPageToken,
 					})
 				)
 			})

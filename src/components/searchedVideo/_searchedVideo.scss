@@ -1,114 +1,119 @@
 @import "../../global";
 
 .searchedVideo {
-  margin-top: 20px;
-  &__thumbnail {
-    position: relative;
-    margin: 0 auto;
-    &__channelIcon {
-      width: fit-content;
+	margin-top: 20px;
+	&__thumbnail {
+		position: relative;
+		margin: 0 auto;
+		cursor: pointer;
+		&__channelIcon {
+			width: fit-content;
+			margin: 0 auto;
+			img {
+				width: 136px;
+				height: 136px;
+				border-radius: 50%;
+			}
+		}
+		&__duration {
+			position: absolute;
+			bottom: 0.3rem;
+			right: 2.3rem;
+			padding: 0.2rem;
+			color: white;
+			border-radius: 3px;
+			background-color: #080808ec;
+		}
+	}
+	&__info {
+		.box {
+			display: flex;
+			flex-direction: column;
+			.title {
+				cursor: pointer;
 
-      img {
-        width: 136px;
-        height: 136px;
-        border-radius: 50%;
-      }
-    }
-    &__duration {
-      position: absolute;
-      bottom: 0.3rem;
-      right: 2.3rem;
-      padding: 0.2rem;
-      color: white;
-      border-radius: 3px;
-      background-color: #080808ec;
-    }
-  }
-  &__info {
-    .box {
-      display: flex;
-      flex-direction: column;
-      .title {
-        color: #fff;
-        @include line-clamb(1);
-        font-size: 20px;
-        font-weight: 500;
-      }
-      .details {
-        font-size: 12px;
-        color: $details-text-color;
-      }
-      .channel {
-        display: flex;
-        gap: 10px;
-        padding: 12px 0;
-        &__icon {
-          img {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-          }
-        }
-        &__title {
-          font-size: 14px;
-          color: $details-text-color;
-          cursor: pointer;
-          &:hover {
-            color: #fff;
-          }
-        }
-      }
-      .description {
-        @include line-clamb(2);
-        font-size: 16px;
-      }
-    }
-    .container {
-      display: flex;
-      flex-direction: row;
-      height: 100%;
-      .channel {
-        display: flex;
-        flex-direction: column;
-        margin: auto 0;
-        &__title {
-          font-size: 20px;
-          font-weight: 500;
-          color: #fff;
-          margin-bottom: 10px;
-        }
-        &__details {
-          font-size: 14px;
-          color: $details-text-color;
-        }
-        &__description {
-          font-size: 12px;
-          @include line-clamb(1);
-        }
-      }
-      .buttons {
-        margin: auto 10px;
-        .subscribe {
-          background-color: $red-primary;
-          border: none;
-          padding: 10px 16px;
-          color: #fff;
-          font-size: 14px;
-          text-transform: uppercase;
-          font-weight: bold;
-          border-radius: 3px;
-        }
-        .unsubscribe {
-          background-color: #ffffff1a;
-          border: none;
-          padding: 10px 16px;
-          color: $details-text-color;
-          font-size: 14px;
-          text-transform: uppercase;
-          font-weight: bold;
-          border-radius: 3px;
-        }
-      }
-    }
-  }
+				color: #fff;
+				@include line-clamb(1);
+				font-size: 20px;
+				font-weight: 500;
+			}
+			.details {
+				font-size: 12px;
+				color: $details-text-color;
+			}
+			.channel {
+				display: flex;
+				gap: 10px;
+				padding: 12px 0;
+				&__icon {
+					img {
+						width: 24px;
+						height: 24px;
+						border-radius: 50%;
+					}
+				}
+				&__title {
+					font-size: 14px;
+					color: $details-text-color;
+					cursor: pointer;
+					&:hover {
+						color: #fff;
+					}
+				}
+			}
+			.description {
+				@include line-clamb(2);
+				font-size: 16px;
+			}
+		}
+		.container {
+			display: flex;
+			flex-direction: row;
+			height: 100%;
+			.channel {
+				display: flex;
+				flex-direction: column;
+				margin: auto 0;
+				&__title {
+					cursor: pointer;
+
+					font-size: 20px;
+					font-weight: 500;
+					color: #fff;
+					margin-bottom: 10px;
+				}
+				&__details {
+					font-size: 14px;
+					color: $details-text-color;
+				}
+				&__description {
+					font-size: 12px;
+					@include line-clamb(1);
+				}
+			}
+			.buttons {
+				margin: auto 10px;
+				.subscribe {
+					background-color: $red-primary;
+					border: none;
+					padding: 10px 16px;
+					color: #fff;
+					font-size: 14px;
+					text-transform: uppercase;
+					font-weight: bold;
+					border-radius: 3px;
+				}
+				.unsubscribe {
+					background-color: #ffffff1a;
+					border: none;
+					padding: 10px 16px;
+					color: $details-text-color;
+					font-size: 14px;
+					text-transform: uppercase;
+					font-weight: bold;
+					border-radius: 3px;
+				}
+			}
+		}
+	}
 }

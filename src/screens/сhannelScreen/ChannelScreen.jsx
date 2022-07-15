@@ -9,8 +9,6 @@ import {
 	getChannelDetails,
 	getVideosByChannel,
 } from "../../utils"
-import Spinner from "react-bootstrap/Spinner"
-import InfiniteScroll from "react-infinite-scroll-component"
 import { MdNotifications } from "react-icons/md"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import numeral from "numeral"
@@ -22,20 +20,16 @@ const ChannelScreen = () => {
 	const dispatch = useDispatch()
 	const { accessToken } = useSelector((state) => state.auth)
 	const { channel, subscriptionStatus } = useSelector((state) => state.channel)
-	const { loading, videos, nextPageToken } = useSelector(
-		(state) => state.channelVideos
-	)
+	const { loading, videos } = useSelector((state) => state.channelVideos)
 	const [activeElement, setActiveElement] = useState("Videos")
 
 	const handleActiveElement = (value) => setActiveElement(value)
-	const fetchData = () => {
-		// dispatch(getVideosByChannel(channelId, nextPageToken))
-	}
+
 	useEffect(() => {
 		dispatch(getChannelDetails(channelId))
-		dispatch(getVideosByChannel(channelId, nextPageToken))
+		dispatch(getVideosByChannel(channelId))
 		dispatch(checkSubscriptionStatus(channelId, accessToken))
-	}, [channelId, accessToken, nextPageToken, dispatch])
+	}, [channelId, accessToken, dispatch])
 	return (
 		<div className="channel">
 			<div className="channel__header">
@@ -78,35 +72,16 @@ const ChannelScreen = () => {
 			</div>
 			<Container>
 				<Row>
-					<InfiniteScroll
-						style={{
-							overflow: "none",
-							display: "flex",
-							flexWrap: "wrap",
-						}}
-						dataLength={videos.length}
-						next={fetchData}
-						hasMore={true}
-						loader={
-							<Spinner
-								style={{ margin: "0 auto" }}
-								animation="border"
-								role="status"
-							>
-								<span className="visually-hidden">Loading...</span>
-							</Spinner>
-						}
-					>
-						{activeElement === "Videos" &&
-							!loading &&
-							videos.map((video) => (
-								<>
-									<Col md={4} lg={3}>
-										<Video video={video} channelVideo />
-									</Col>
-								</>
-							))}
-					</InfiniteScroll>
+					{activeElement === "Videos" &&
+						!loading &&
+						videos.map((video) => (
+							<>
+								<Col md={4} lg={3}>
+									<Video video={video} channelVideo />
+								</Col>
+							</>
+						))}
+
 					{activeElement === "About" && <ChannelAbout />}
 				</Row>
 			</Container>
