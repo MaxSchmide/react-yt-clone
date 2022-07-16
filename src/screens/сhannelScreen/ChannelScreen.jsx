@@ -63,7 +63,7 @@ const ChannelScreen = () => {
 						<div
 							key={index}
 							onClick={() => handleActiveElement(item)}
-							className={activeElement === item && "active"}
+							className={activeElement === item ? "active" : ""}
 						>
 							{item}
 						</div>
@@ -77,7 +77,7 @@ const ChannelScreen = () => {
 						videos.map((video) => (
 							<>
 								<Col md={4} lg={3}>
-									<Video video={video} channelVideo />
+									<Video video={video} key={video.id} channelVideo />
 								</Col>
 							</>
 						))}

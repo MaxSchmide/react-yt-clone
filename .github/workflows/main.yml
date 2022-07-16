@@ -1,4 +1,4 @@
-name: Firebase Deployment
+name: Build and Deploy
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  deploy:
+  deploy
     name: Build & Deployment
     runs-on: ubuntu-latest
     steps:
@@ -18,12 +18,12 @@ jobs:
         with:
           node-version: "16"
 
-      - name: install node packages
+      - name: install packages
         run: npm i
 
-      - name: Build
+      - name: build
         run: npm run build
-        env:
+        env: 
           CI: false
 
       - name: Deploy to Firebase
