@@ -12,6 +12,11 @@ import {
 } from "./redux/channelVideosReducer"
 import { videoFail, videoRequest, videoSuccess } from "./redux/homeVideoReducer"
 import {
+	likedVideosFail,
+	likedVideosRequest,
+	likedVideosSuccess,
+} from "./redux/likedVideosReducer"
+import {
 	relatedFail,
 	relatedRequest,
 	relatedSuccess,
@@ -294,27 +299,25 @@ export const getVideosByChannel = (param) => {
 	}
 }
 
-export const getLikedVideos = (nextPageToken) => {
+export const getLikedVideos = (token) => {
 	return async (dispatch) => {
 		try {
-			dispatch(videoRequest())
+			dispatch(likedVideosRequest())
 			await request("/videos", {
 				params: {
 					part: "snippet,contentDetails,statistics",
 					myRating: "like",
-					pageToken: nextPageToken,
+					mine: true,
 					maxResults: 20,
 				},
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
 			}).then(({ data }) => {
-				dispatch(
-					videoSuccess({
-						videos: data.items,
-						nextPageToken: data.nextPageToken,
-					})
-				)
+				dispatch(likedVideosSuccess(data.items))
 			})
 		} catch (error) {
-			dispatch(videoFail(error.message))
+			dispatch(likedVideosFail(error.message))
 		}
 	}
 }
