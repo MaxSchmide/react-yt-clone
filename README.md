@@ -1,3 +1,3 @@
-### Deployed by firebase:
+### Old version of YouTube Clone:
 
-*https://clone-d7461.web.app/*
+[DEMO](https://clone-d7461.web.app/)
